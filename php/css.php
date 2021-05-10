@@ -1,0 +1,10 @@
+<link rel="stylesheet" href="<?php echo URL . "assets/css/bootstrap.min.css" ?>">
+<link rel="stylesheet" href="<?php echo URL . "assets/fonts/flaticon/flaticon.css" ?>">
+<link rel="stylesheet" href="<?php echo URL . "assets/fonts/icofont/icofont.min.css" ?>">
+<link rel="stylesheet" href="<?php echo URL . "assets/fontawesome/css/all.min.css" ?>">
+<link rel="stylesheet" href="<?php echo URL . "assets/fonts/gilory/gilory.css" ?>">
+<link rel="stylesheet" href="<?php echo URL . "assets/css/magnific-popup.css" ?>">
+<link rel="stylesheet" href="<?php echo URL . "assets/css/slick.css" ?>">
+<link rel="stylesheet" href="<?php echo URL . "assets/css/nice-select.css" ?>">
+<link rel="stylesheet" href="<?php echo URL . "assets/css/default.css" ?>">
+<link rel="stylesheet" href="<?php echo URL . "assets/css/style.css" ?>">
