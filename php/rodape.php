@@ -80,12 +80,12 @@
     <div class="copyright-area">
         <div class="container">
             <div class="row">
-                <div class="col-lg-6">
+                <div class="col-lg-6 col-md-6">
                     <div class="copyright-text">
                         <p><span><?php echo $voResultadoConfiguracoes->nome_empresa ?></span>. Todos direitos reservados.</p>
                     </div>
                 </div>
-                <div class="col-lg-6 logo-wd">
+                <div class="col-lg-6 col-md-6 logo-wd">
                     <a class="logo-wd-float-right" href="https://webdezan.com.br" target="_blank">
                         <img src="<?php echo URL . "assets/images/logo-wd.png" ?>" title="Web Dezan - Agência Digital" alt="Web Dezan - Agência Digital">
                     </a>

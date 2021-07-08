@@ -138,6 +138,12 @@ body {
     overflow-x: hidden;
 }
 
+.img-responsive {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
 .bg_cover {
     background-position: center center;
     background-size: cover;
@@ -183,7 +189,8 @@ body {
 }
 .section-title h2 {
     font-size: 48px;
-    margin-bottom: 20px;
+    line-height: 47px;
+    margin-bottom: 0px;
 }
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
     .section-title h2 {
@@ -828,6 +835,17 @@ button {
 .header-area-v2 .header-top {
     background-color: transparent;
 }
+@media only screen and (width: 768px) {
+    .footer-area .copyright-area .copyright-text p {
+        text-align: center;
+    }
+    .logo-wd {
+        text-align: center;
+    }
+    .logo-wd-float-right {
+        float: none !important;
+    }
+}
 @media only screen and (min-width: 768px) and (max-width: 991px) {
     .header-area-v2 .header-top .top-left {
         text-align: center;
@@ -971,6 +989,7 @@ button {
     position: relative;
     padding: 210px 0 220px;
     z-index: 1;
+    height: 912px;
 }
 @media (max-width: 991px) {
     .banner-area-v1 .hero-slider-one .single-hero {
@@ -1266,9 +1285,6 @@ button {
 /*---=======================
    04. Start About css 
 ===========================---*/
-.about-area-v1 .about-img-box {
-    margin-left: -200px;
-}
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
     .about-area-v1 .about-img-box {
         margin-left: 0px;
@@ -1280,9 +1296,14 @@ button {
         margin-bottom: 60px;
     }
 }
-.about-area-v1 .about-content-box {
-    margin-left: 40px;
-    margin-right: -70px;
+.about-area-v1 .about-img-box img {
+    border-radius: 10px;
+}
+.about-area-v1 .about-content-box .section-title {
+    margin-bottom: 5px;
+}
+.about-area-v1 .about-content-box .section-title h2 {
+    margin-bottom: 5px;
 }
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
     .about-area-v1 .about-content-box {
@@ -1306,7 +1327,7 @@ button {
     font-style: italic;
     margin-bottom: 20px;
 }
-.about-area-v1 .about-content-box p {
+.about-area-v1 .about-content-box p:not(:last-child) {
     margin-bottom: 10px;
 }
 
@@ -1560,13 +1581,13 @@ button {
 .service-area-v1 .service-slider-one .slick-dots li button {
     width: 10px;
     height: 10px;
-    border-radius: 5px;
+    border-radius: 10px;
     background-color: #fff;
     transition: all 0.3s ease-out 0s;
 }
 
 .service-area-v2 .service-item {
-    border-radius: 5px;
+    border-radius: 10px;
 }
 .service-area-v2 .service-item .service-img {
     background: #fff;
@@ -1576,7 +1597,7 @@ button {
 .service-area-v2 .service-item .service-img img {
     -webkit-clip-path: polygon(0 0, 100% 0%, 100% 75%, 0% 100%);
     clip-path: polygon(0 0, 100% 0%, 100% 75%, 0% 100%);
-    border-radius: 5px 5px 0 0;
+    border-radius: 10px 10px 0 0;
     width: 100%;
 }
 .service-area-v2 .service-item .service-img:after {
@@ -1590,7 +1611,7 @@ button {
     z-index: -1;
     -webkit-clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 75%);
     clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 75%);
-    border-radius: 5px 5px 0 0;
+    border-radius: 10px 10px 0 0;
 }
 .service-area-v2 .service-item .service-img .icon {
     position: absolute;
@@ -1616,7 +1637,7 @@ button {
     padding: 30px 40px 40px;
     background-color: #fff;
     box-shadow: 0px 11px 38px 0px rgba(32, 42, 48, 0.08);
-    border-radius: 0 0 5px 5px;
+    border-radius: 0 0 10px 10px;
 }
 .service-area-v2 .service-item .service-content h3 {
     font-size: 25px;
@@ -1890,9 +1911,16 @@ button {
 .features-area-v1 .features-column .features-item {
     background-color: rgba(252, 83, 14, 0.08);
     height: 185px;
+    border-radius: 0px;
     padding: 30px 25px;
     position: relative;
     z-index: 1;
+}
+.border-radius-left {
+    border-radius: 10px 0px 0px 10px !important;
+}
+.border-radius-right {
+    border-radius: 0px 10px 10px 0px !important;
 }
 .features-area-v1 .features-column .features-item:hover:after, .features-area-v1 .features-column .features-item:hover:before {
     visibility: visible;
@@ -1922,6 +1950,7 @@ button {
 }
 .features-area-v1 .features-column .features-item:after {
     position: absolute;
+    border-radius: 10px;
     top: -15px;
     left: 0;
     width: 100%;
@@ -2372,6 +2401,9 @@ button {
     text-align: center;
     padding: 0 20px;
 }
+.awards-area .awards-slide .single-awards img {
+    border-radius: 50%;
+}
 @media (max-width: 991px) {
     .awards-area .section-title {
         text-align: center;
@@ -2646,7 +2678,7 @@ button {
 .project-area-v1 .project-slide-wrapper {
     position: relative;
     margin-top: -215px;
-    margin-left: 28%;
+    margin-left: 32%;
 }
 @media (max-width: 991px) {
     .project-area-v1 .project-slide-wrapper {
@@ -2664,7 +2696,7 @@ button {
     border-radius: 50%;
     background-color: #437b83;
     color: #fff;
-    left: -20%;
+    left: -23%;
     z-index: 1;
     cursor: pointer;
     transition: all 0.3s ease-out 0s;
@@ -2675,7 +2707,7 @@ button {
     }
 }
 .project-area-v1 .project-slide-wrapper .project-slide-one .slick-arrow.next {
-    left: -13%;
+    left: -16%;
 }
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
     .project-area-v1 .project-slide-wrapper .project-slide-one .slick-arrow.next {
@@ -2698,10 +2730,12 @@ button {
     margin-bottom: 20px;
 }
 .project-area-v1 .project-item .project-img img {
+    border-radius: 10px;
     width: 100%;
 }
 .project-area-v1 .project-item .project-img .project-overlay {
     position: absolute;
+    border-radius: 10px;
     top: 50%;
     left: 50%;
     width: 85%;
@@ -4576,6 +4610,9 @@ ul.rating li i {
     font-size: 32px;
     color: #fff;
 }
+.sidebar-widget-area .widget.widget-cta .cta-content h4.call a:hover {
+    color: #000;
+}
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
     .sidebar-widget-area .widget.widget-cta .cta-content h4.call {
         font-size: 24px;
@@ -4643,7 +4680,7 @@ ul.rating li i {
     }
 }
 .contact-page-section .contact-info-list .info-box .info {
-    margin-left: 45px;
+    margin-left: 15px;
 }
 .contact-page-section .contact-info-list .info-box .info p a:hover {
     color: #fc530e;
@@ -4674,7 +4711,8 @@ ul.rating li i {
 .contact-page-section .contact-form-wrapper {
     background-color: #f9f9f9;
     box-shadow: 0px 20px 30px 0px rgba(40, 40, 40, 0.08);
-    padding: 45px 70px 60px;
+    padding: 45px 30px 45px;
+    border-radius: 10px;
 }
 @media (max-width: 991px) {
     .contact-page-section .contact-form-wrapper {
@@ -4685,7 +4723,7 @@ ul.rating li i {
     margin-bottom: 20px;
     border: 1px solid #eeeeee;
     background-color: #fff;
-    border-radius: 2px;
+    border-radius: 10px;
 }
 .contact-page-section .contact-form-wrapper .contact-form .form_group .form_control:focus {
     border-color: #fc530e;
@@ -4763,7 +4801,7 @@ ul.rating li i {
     }
 }
 .footer-area .footer-widget .widget.widget-categories ul.widget-link li {
-    font-size: 19px;
+    font-size: 18px;
     padding-bottom: 10px;
 }
 .footer-area .footer-widget .widget.widget-categories ul.widget-link li a {

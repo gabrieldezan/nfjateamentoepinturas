@@ -551,7 +551,7 @@ $(function($) {
         infinite: true,
         autoplay: true,
         Speed: 1500,
-        slidesToShow: 5,
+        slidesToShow: 4,
         slidesToScroll: 1,
         responsive: [
             {
