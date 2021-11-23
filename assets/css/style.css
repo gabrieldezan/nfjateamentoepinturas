@@ -724,6 +724,12 @@ button {
     background-color: #fc530e;
 }
 @media (max-width: 767px) {
+    .footer-area .copyright-area .copyright-text p {
+        text-align: center;
+    }
+    .breadcrumbs-section .breadcrumbs-content ul.link li {
+        font-size: 16px !important;
+    }
     .header-top .top-left {
         text-align: center;
     }
@@ -987,9 +993,13 @@ button {
 }
 .banner-area-v1 .hero-slider-one .single-hero {
     position: relative;
-    padding: 210px 0 220px;
+    padding: 150px 0;
     z-index: 1;
-    height: 912px;
+}
+@media (min-width: 991px) {
+    .banner-area-v1 .hero-slider-one .single-hero {
+        height: 912px;
+    }
 }
 @media (max-width: 991px) {
     .banner-area-v1 .hero-slider-one .single-hero {
@@ -1645,6 +1655,7 @@ button {
     margin-bottom: 22px;
 }
 .service-area-v2 .service-item .service-content p {
+    text-align: justify;
     padding-bottom: 35px;
 }
 .service-area-v2 .service-item .service-content h3 a:hover {
@@ -4676,7 +4687,7 @@ ul.rating li i {
 }
 @media (max-width: 991px) {
     .contact-page-section .contact-info-list .info-box .icon i {
-        font: 26px;
+        font-size: 26px;
     }
 }
 .contact-page-section .contact-info-list .info-box .info {
@@ -4692,7 +4703,7 @@ ul.rating li i {
 }
 @media (max-width: 991px) {
     .contact-page-section .contact-info-list .info-box .info {
-        margin-left: 20px;
+        margin-left: 8px;
     }
 }
 .contact-page-section .contact-info-list .info-box .info h4 {
@@ -4751,18 +4762,18 @@ ul.rating li i {
    12. Start Footer css 
 ===========================---*/
 .footer-area .footer-widget {
-    padding-top: 130px;
+    padding-top: 100px;
+    padding-bottom: 100px;
 }
 .footer-area .footer-widget .widget h4.widget-title {
     color: #fff;
-    margin-bottom: 45px;
+    margin-bottom: 25px;
 }
 .footer-area .footer-widget .widget p {
     color: #e1e1e1;
 }
 .footer-area .footer-widget .widget.about-widget img {
     margin-bottom: 40px;
-    margin-top: -14px;
 }
 .footer-area .footer-widget .widget.about-widget p {
     margin-bottom: 35px;
