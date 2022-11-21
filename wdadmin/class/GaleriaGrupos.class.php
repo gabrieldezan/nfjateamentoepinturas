@@ -7,6 +7,7 @@ class GaleriaGrupos extends Conexao {
 
     private $id_galeria_grupo;
     private $descricao;
+    private $url_amigavel;
     private $status;
     private $retorno_dados;
 
@@ -21,27 +22,32 @@ class GaleriaGrupos extends Conexao {
                 $salva_dados = $pdo->prepare('
                     INSERT INTO galeria_grupo (
                         descricao,
+                        url_amigavel,
                         status
                     ) VALUES (
+                        ?,
                         ?,
                         ?
                     );
                 ');
                 $salva_dados->execute(array(
                     "$this->descricao",
+                    "$this->url_amigavel",
                     "$this->status"
                 ));
                 $this->setRetorno_dados($pdo->lastInsertId());
             } else {
                 $salva_dados = $pdo->prepare('
                     UPDATE galeria_grupo SET 
-                        descricao   = ?,
-                        status      = ?
+                        descricao      = ?,
+                        url_amigavel   = ?,
+                        status         = ?
                     WHERE 
                         id_galeria_grupo = ?;
                 ');
                 $salva_dados->execute(array(
                     "$this->descricao",
+                    "$this->url_amigavel",
                     "$this->status",
                     "$this->id_galeria_grupo"
                 ));
@@ -130,6 +136,10 @@ class GaleriaGrupos extends Conexao {
         return $this->descricao;
     }
 
+    function getUrl_amigavel() {
+        return $this->url_amigavel;
+    }
+
     function getStatus() {
         return $this->status;
     }
@@ -144,6 +154,10 @@ class GaleriaGrupos extends Conexao {
 
     function setDescricao($descricao) {
         $this->descricao = $descricao;
+    }
+
+    function setUrl_amigavel($url_amigavel) {
+        $this->url_amigavel = $url_amigavel;
     }
 
     function setStatus($status) {

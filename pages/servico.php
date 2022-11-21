@@ -4,7 +4,8 @@ $vsSqlServico = "
         id_servicos,
         titulo,
         imagem,
-        descricao
+        descricao,
+        resumo
     FROM
         servicos
     WHERE
@@ -15,133 +16,120 @@ $vrsExecutaServico = mysqli_query($Conexao, $vsSqlServico) or die("Erro ao efetu
 $vrsQntServico = mysqli_num_rows($vrsExecutaServico);
 if ($vrsQntServico > 0) {
     $voResultadoServico = mysqli_fetch_object($vrsExecutaServico);
-    ?>
+?>
     <html lang="pt-br">
-        <head>
-            <meta charset="utf-8">
-            <meta http-equiv="X-UA-Compatible" content="IE=edge">
-            <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-            <meta name="description" content="<?php echo $voResultadoConfiguracoes->descricao ?>">
-            <meta name="author" content="Web Dezan - Agência Digital">
-            <meta name="robots" content="index, follow" />
-            <meta name="googlebot" content="index, follow" />
-            <meta property="og:type" content="website"/>
-            <meta property="og:title" content="<?php echo $voResultadoServico->titulo . " - " . $voResultadoConfiguracoes->titulo ?>"/>
-            <meta property="og:description" content="<?php echo $voResultadoConfiguracoes->descricao ?>"/>
-            <meta property="og:image" content="<?php echo "https://" . $_SERVER['HTTP_HOST'] . URL . "wdadmin/uploads/servicos/" . $voResultadoServico->imagem ?>"/>
-            <meta property="og:url" content="<?php echo "https://" . $_SERVER['HTTP_HOST'] . URL . "servicos/" . $parametro ?>"/>
-            <meta property="og:site_name" content="<?php echo $voResultadoConfiguracoes->nome_empresa ?>"/>
-            <?php
-            $vsSqlFacebook = "SELECT link FROM redes_sociais WHERE id_redes_sociais = 1";
-            $vrsExecutaFacebook = mysqli_query($Conexao, $vsSqlFacebook) or die("Erro ao efetuar a operação no banco de dados! <br> Arquivo:" . __FILE__ . "<br>Linha:" . __LINE__ . "<br>Erro:" . mysqli_error($Conexao));
-            while ($voResultadoFacebook = mysqli_fetch_object($vrsExecutaFacebook)) {
-                ?>
-                <meta property="fb:admins" content="<?php echo $voResultadoFacebook->link ?>"/>
-            <?php } ?>
-            <link rel="shortcut icon" href="<?php echo URL . "wdadmin/uploads/informacoes_gerais/" . $voResultadoConfiguracoes->favicon ?>">
-            <style type="text/css">body.royal_preloader{background:0 0;visibility:hidden}#royal_preloader{visibility:visible;position:fixed;width:100%;height:100%;top:0;right:0;bottom:0;left:0;height:auto;margin:0;z-index:9999999999}#royal_preloader.royal_preloader_number:before,#royal_preloader.royal_preloader_progress:before{content:'';position:absolute;top:0;right:0;bottom:0;left:0;background-image:-webkit-radial-gradient(circle,rgba(255,255,255,.1),rgba(255,255,255,.01));background-image:-moz-radial-gradient(circle,rgba(255,255,255,.1),rgba(255,255,255,.01));background-image:-ms-radial-gradient(circle,rgba(255,255,255,.1),rgba(255,255,255,.01));background-image:-o-radial-gradient(circle,rgba(255,255,255,.1),rgba(255,255,255,.01));background-image:radial-gradient(circle,rgba(255,255,255,.1),rgba(255,255,255,.01))}#royal_preloader.complete{opacity:0;-webkit-transition:opacity .2s linear .5s;-moz-transition:opacity .2s linear .5s;-ms-transition:opacity .2s linear .5s;-o-transition:opacity .2s linear .5s;transition:opacity .2s linear .5s}#royal_preloader.royal_preloader_line{height:2px;bottom:auto}#royal_preloader.royal_preloader_number .royal_preloader_percentage{position:absolute;top:0;right:0;bottom:0;left:0;margin:auto;width:100px;height:100px;border-width:1px;border-style:solid;border-radius:50%;line-height:100px;font-size:20px;font-family:Impact,Arial;text-shadow:1px 1px 2px rgba(0,0,0,.1);text-align:center}#royal_preloader.royal_preloader_number .royal_preloader_percentage>div{position:absolute;top:-2px;right:-2px;bottom:-2px;left:-2px;border:4px solid transparent;border-left-color:#fff;border-radius:50%;-webkit-animation:rotate .8s linear infinite;-moz-animation:rotate .8s linear infinite;-ms-animation:rotate .8s linear infinite;-o-animation:rotate .8s linear infinite;animation:rotate .8s linear infinite}#royal_preloader.royal_preloader_line .royal_preloader_loader{position:absolute;height:100%;left:0}#royal_preloader.royal_preloader_line .royal_preloader_peg{position:absolute;right:0;height:100%;width:100px;opacity:.5}#royal_preloader.royal_preloader_text .royal_preloader_loader{color:#fff;position:absolute;top:0;bottom:0;opacity:.2;left:50%;font-family:'Open Sans',sans-serif;font-weight:700;height:80px;line-height:80px;margin:auto;letter-spacing:-4px;font-size:55px;white-space:nowrap}#royal_preloader.royal_preloader_text .royal_preloader_loader div{position:absolute;top:0;right:0;bottom:0;left:0;background-color:#000;opacity:.7}#royal_preloader.royal_preloader_scale_text .royal_preloader_loader{color:#fff;position:absolute;font-family:'Open Sans',sans-serif;font-weight:700;top:0;bottom:0;left:50%;height:32px;line-height:32px;margin:auto;letter-spacing:1px;font-size:32px;white-space:nowrap}#royal_preloader.royal_preloader_scale_text .royal_preloader_loader span{display:inline-block;-webkit-transform:scale(0);-moz-transform:scale(0);-ms-transform:scale(0);-o-transform:scale(0);transform:scale(0)}#royal_preloader.royal_preloader_scale_text .royal_preloader_loader span.loaded{-webkit-animation:scale .2s forwards;-moz-animation:scale .2s forwards;-ms-animation:scale .2s forwards;-o-animation:scale .2s forwards;animation:scale .2s forwards}#royal_preloader.royal_preloader_logo .royal_preloader_loader{position:absolute;left:50%;top:50%;margin:0;overflow:hidden;background-position:50% 50%;background-repeat:no-repeat;background-size:100%;border-radius:5px}#royal_preloader.royal_preloader_logo .royal_preloader_loader div{position:absolute;bottom:0;left:0;right:0;height:100%;opacity:.7}#royal_preloader.royal_preloader_logo .royal_preloader_percentage{position:absolute;top:50%;left:50%;height:40px;line-height:40px;margin:0;color:#072e77;text-align:center;font-family:'Open Sans';font-size:13px;font-weight:400;letter-spacing:2px;padding-top:10px}#royal_preloader.royal_preloader_progress .royal_preloader_percentage{position:absolute;top:50%;left:0;right:0;color:#aaa;color:rgba(255,255,255,.1);font-family:Impact,Arial;font-size:20px;text-align:center}#royal_preloader.royal_preloader_progress .royal_preloader_loader{content:'';position:absolute;top:50%;left:0;right:0;width:60%;height:2px;margin:-10px auto auto auto;background-color:rgba(0,0,0,.1)}#royal_preloader.royal_preloader_progress .royal_preloader_meter{width:0;height:100%;margin:auto;padding:0;background-color:#c76363}@-webkit-keyframes rotate{0%{-webkit-transform:rotate(0)}100%{-webkit-transform:rotate(360deg)}}@-moz-keyframes rotate{0%{-moz-transform:rotate(0)}100%{-moz-transform:rotate(360deg)}}@-ms-keyframes rotate{0%{-ms-transform:rotate(0)}100%{-ms-transform:rotate(360deg)}}@-o-keyframes rotate{0%{-o-transform:rotate(0)}100%{-o-transform:rotate(360deg)}}@keyframes rotate{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}@-webkit-keyframes scale{0%{-webkit-transform:scale(0);opacity:0}50%{-webkit-transform:scale(2);opacity:.5}100%{-webkit-transform:scale(1);opacity:1}}@-moz-keyframes scale{0%{-moz-transform:scale(0);opacity:0}50%{-moz-transform:scale(2);opacity:.5}100%{-moz-transform:scale(1);opacity:1}}@-ms-keyframes scale{0%{-ms-transform:scale(0);opacity:0}50%{-ms-transform:scale(2);opacity:.5}100%{-ms-transform:scale(1);opacity:1}}@-o-keyframes scale{0%{-o-transform:scale(0);opacity:0}50%{-o-transform:scale(2);opacity:0}.5 100%{-o-transform:scale(1);opacity:1}}@keyframes scale{0%{transform:scale(0);opacity:0}50%{transform:scale(2);opacity:.5}100%{transform:scale(1);opacity:1}}@media only screen and (max-width:800px){#royal_preloader.royal_preloader_scale_text .royal_preloader_loader{height:22px;line-height:22px;font-size:22px}}.royal_preloader_percentage{font-weight:600!important;font-size:18px!important;font-family:"Gilroy", sans-serif!important}</style>
-            <title><?php echo $voResultadoServico->titulo . " - " . $voResultadoConfiguracoes->titulo ?></title>
-        </head>
 
-        <body class="royal_preloader">
+    <head>
+        <?php
+        // HEAD
+        include 'php/head.php';
+        ?>
+        <meta name="robots" content="index, follow">
+        <meta name="googlebot" content="index, follow">
+        <meta name="description" content="<?php echo substr(strip_tags(trim($voResultadoServico->resumo)), 0, strrpos(substr(strip_tags(trim($voResultadoServico->resumo)), 0, 200), ' ')) . '...'; ?>">
+        <meta property="og:title" content="<?php echo $voResultadoServico->titulo . " - " . $voResultadoConfiguracoes->titulo ?>">
+        <meta property="og:description" content="<?php echo substr(strip_tags(trim($voResultadoServico->resumo)), 0, strrpos(substr(strip_tags(trim($voResultadoServico->resumo)), 0, 200), ' ')) . '...'; ?>">
+        <meta property="og:image" content="<?php echo "https://" . $_SERVER['HTTP_HOST'] . URL . "wdadmin/uploads/servicos/" . $voResultadoServico->imagem ?>">
+        <meta property="og:url" content="<?php echo "https://" . $_SERVER['HTTP_HOST'] . URL . "servicos/" . $parametro ?>">
+        <title><?php echo $voResultadoServico->titulo . " - " . $voResultadoConfiguracoes->titulo ?></title>
+    </head>
 
-            <?php
-            // MENU
-            include 'php/menu.php';
-            ?>
+    <body class="royal_preloader">
 
-            <section class="breadcrumbs-section bg_cover" style="background-image: url(<?php echo URL . "assets/images/bg-pages.webp" ?>);">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-8">
-                            <div class="breadcrumbs-content">
-                                <h1><?php echo $voResultadoServico->titulo ?></h1>
-                                <ul class="link">
-                                    <li><a href="<?php echo URL ?>">Home</a></li>
-                                    <li>Serviços</li>
-                                    <li class="active"><?php echo $voResultadoServico->titulo ?></li>
-                                </ul>
-                            </div>
+        <?php
+        // MENU
+        include 'php/menu.php';
+        ?>
+
+        <section class="breadcrumbs-section bg_cover" style="background-image: url(<?php echo URL . "assets/images/bg-pages.webp" ?>);">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div class="breadcrumbs-content">
+                            <h1><?php echo $voResultadoServico->titulo ?></h1>
+                            <ul class="link">
+                                <li><a href="<?php echo URL ?>">Home</a></li>
+                                <li>Serviços</li>
+                                <li class="active"><?php echo $voResultadoServico->titulo ?></li>
+                            </ul>
                         </div>
                     </div>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <section class="service-details-section pt-120 pb-120">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-8">
-                            <div class="service-details-wrapper">
-                                <div class="service-img">
-                                    <img src="<?php echo URL . "wdadmin/uploads/servicos/" . $voResultadoServico->imagem ?>" title="<?php echo $voResultadoServico->titulo ?>" alt="<?php echo $voResultadoServico->titulo ?>">
-                                </div>
-                                <div class="service-content">
-                                    <h3 class="title"><?php echo $voResultadoServico->titulo ?></h3>
-                                    <?php echo $voResultadoServico->descricao ?>
-                                </div>
+        <section class="service-details-section pt-120 pb-120">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div class="service-details-wrapper">
+                            <div class="service-img">
+                                <img src="<?php echo URL . "wdadmin/uploads/servicos/" . $voResultadoServico->imagem ?>" title="<?php echo $voResultadoServico->titulo ?>" alt="<?php echo $voResultadoServico->titulo ?>">
+                            </div>
+                            <div class="service-content">
+                                <h3 class="title"><?php echo $voResultadoServico->titulo ?></h3>
+                                <?php echo $voResultadoServico->descricao ?>
                             </div>
                         </div>
-                        <div class="col-lg-4">
-                            <div class="sidebar-widget-area">
-                                <div class="widget widget-catageory mb-40">
-                                    <h4 class="widget-title">Nossos Serviços</h4>
-                                    <ul class="categeory-link">
-                                        <?php
-                                        $vsSqlServicos = "SELECT titulo, url_amigavel FROM servicos WHERE status = 1 AND id_servicos != $voResultadoServico->id_servicos";
-                                        $vrsExecutaServicos = mysqli_query($Conexao, $vsSqlServicos) or die("Erro ao efetuar a operação no banco de dados! <br> Arquivo:" . __FILE__ . "<br>Linha:" . __LINE__ . "<br>Erro:" . mysqli_error($Conexao));
-                                        while ($voResultadoServicos = mysqli_fetch_object($vrsExecutaServicos)) {
-                                            ?>
-                                            <li><a href="<?php echo URL . "servicos/" . $voResultadoServicos->url_amigavel ?>"><?php echo $voResultadoServicos->titulo ?></a></li>
-                                            <?php
-                                        }
-                                        ?>
-                                    </ul>
-                                </div>
-                                <div class="widget widget-cta mb-40">
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="sidebar-widget-area">
+                            <div class="widget widget-catageory mb-40">
+                                <h4 class="widget-title">Nossos Serviços</h4>
+                                <ul class="categeory-link">
                                     <?php
-                                    $vsSqlChamada = "SELECT titulo, imagem, icone FROM informacoes WHERE id_informacoes = 6";
-                                    $vrsExecutaChamada = mysqli_query($Conexao, $vsSqlChamada) or die("Erro ao efetuar a operação no banco de dados! <br> Arquivo:" . __FILE__ . "<br>Linha:" . __LINE__ . "<br>Erro:" . mysqli_error($Conexao));
-                                    while ($voResultadoChamada = mysqli_fetch_object($vrsExecutaChamada)) {
-                                        ?>
-                                        <div class="cta-content bg_cover text-center" style="background-image: url(<?php echo URL . "wdadmin/uploads/informacoes/" . $voResultadoChamada->imagem ?>);">
-                                            <h3><?php echo $voResultadoChamada->titulo ?></h3>
-                                            <i class="<?php echo $voResultadoChamada->icone ?>"></i>
-                                            <?php
-                                            $vsSqlTelefone = "SELECT telefone FROM enderecos WHERE id_enderecos = 1";
-                                            $vrsExecutaTelefone = mysqli_query($Conexao, $vsSqlTelefone) or die("Erro ao efetuar a operação no banco de dados! <br> Arquivo:" . __FILE__ . "<br>Linha:" . __LINE__ . "<br>Erro:" . mysqli_error($Conexao));
-                                            while ($voResultadoTelefone = mysqli_fetch_object($vrsExecutaTelefone)) {
-                                                ?>
-                                                <h4 class="call"><a href="<?php echo "tel:55" . str_replace(array("(", ")", "-", " "), "", $voResultadoTelefone->telefone) ?>"><?php echo $voResultadoTelefone->telefone ?></a></h4>
-                                                <?php
-                                            }
-                                            ?>
-                                        </div>
-                                        <?php
+                                    $vsSqlServicos = "SELECT titulo, url_amigavel FROM servicos WHERE status = 1 AND id_servicos != $voResultadoServico->id_servicos";
+                                    $vrsExecutaServicos = mysqli_query($Conexao, $vsSqlServicos) or die("Erro ao efetuar a operação no banco de dados! <br> Arquivo:" . __FILE__ . "<br>Linha:" . __LINE__ . "<br>Erro:" . mysqli_error($Conexao));
+                                    while ($voResultadoServicos = mysqli_fetch_object($vrsExecutaServicos)) {
+                                    ?>
+                                        <li><a href="<?php echo URL . "servicos/" . $voResultadoServicos->url_amigavel ?>"><?php echo $voResultadoServicos->titulo ?></a></li>
+                                    <?php
                                     }
                                     ?>
-                                </div>
+                                </ul>
+                            </div>
+                            <div class="widget widget-cta mb-40">
+                                <?php
+                                $vsSqlChamada = "SELECT titulo, imagem, icone FROM informacoes WHERE id_informacoes = 6";
+                                $vrsExecutaChamada = mysqli_query($Conexao, $vsSqlChamada) or die("Erro ao efetuar a operação no banco de dados! <br> Arquivo:" . __FILE__ . "<br>Linha:" . __LINE__ . "<br>Erro:" . mysqli_error($Conexao));
+                                while ($voResultadoChamada = mysqli_fetch_object($vrsExecutaChamada)) {
+                                ?>
+                                    <div class="cta-content bg_cover text-center" style="background-image: url(<?php echo URL . "wdadmin/uploads/informacoes/" . $voResultadoChamada->imagem ?>);">
+                                        <h3><?php echo $voResultadoChamada->titulo ?></h3>
+                                        <i class="<?php echo $voResultadoChamada->icone ?>"></i>
+                                        <?php
+                                        $vsSqlTelefone = "SELECT telefone FROM enderecos WHERE id_enderecos = 1";
+                                        $vrsExecutaTelefone = mysqli_query($Conexao, $vsSqlTelefone) or die("Erro ao efetuar a operação no banco de dados! <br> Arquivo:" . __FILE__ . "<br>Linha:" . __LINE__ . "<br>Erro:" . mysqli_error($Conexao));
+                                        while ($voResultadoTelefone = mysqli_fetch_object($vrsExecutaTelefone)) {
+                                        ?>
+                                            <h4 class="call"><a href="<?php echo "tel:55" . str_replace(array("(", ")", "-", " "), "", $voResultadoTelefone->telefone) ?>"><?php echo $voResultadoTelefone->telefone ?></a></h4>
+                                        <?php
+                                        }
+                                        ?>
+                                    </div>
+                                <?php
+                                }
+                                ?>
                             </div>
                         </div>
                     </div>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <?php
-            // RODAPÉ
-            include 'php/rodape.php';
-            ?>
+        <?php
+        // RODAPÉ
+        include 'php/rodape.php';
 
-            <a href="#" class="back-to-top" ><i class="flaticon-up-arrow-angle"></i></a>
+        // CSS
+        include 'php/css.php';
 
-            <?php
-            // CSS
-            include 'php/css.php';
+        // SCRIPT
+        include 'php/script.php';
+        ?>
 
-            // SCRIPT
-            include 'php/script.php';
-            ?>
+    </body>
 
-        </body>
     </html>
-    <?php
+<?php
 }

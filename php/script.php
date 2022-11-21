@@ -11,9 +11,7 @@
 <script src="<?php echo URL . "assets/js/waypoints.min.js" ?>"></script>
 <script src="<?php echo URL . "assets/js/main.min.js" ?>"></script>
 <script src="<?php echo URL . "assets/js/royal_preloader.min.js" ?>"></script>
-<script>window.jQuery = window.$ = jQuery, function (o) {
-        "use strict";
-        Royal_Preloader.config({mode: "logo", logo: '<?php echo URL . "wdadmin/uploads/informacoes_gerais/" . $voResultadoConfiguracoes->logo_principal ?>', logo_size: [195, 45], showProgress: !0, showPercentage: !0, text_colour: "#000000", background: "#ffffff"})}(jQuery);</script>
+<script>window.jQuery = window.$ = jQuery, function (o) {"use strict";Royal_Preloader.config({mode: "logo", logo: '<?php echo URL . "wdadmin/uploads/informacoes_gerais/" . $voResultadoConfiguracoes->logo_principal ?>', logo_size: [195, 45], showProgress: !0, showPercentage: !0, text_colour: "#000000", background: "#ffffff"})}(jQuery);</script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-GB8PJ2F3DY"></script>
 <script>
@@ -22,6 +20,5 @@
         dataLayer.push(arguments);
     }
     gtag('js', new Date());
-
     gtag('config', 'G-GB8PJ2F3DY');
 </script>

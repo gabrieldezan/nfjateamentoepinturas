@@ -23,6 +23,10 @@ if ($Url[0] == "" || $Url[0] == "home") {
 } else if ($Url[0] == "projetos") {
     $pagina = "projetos";
     $parametro = "";
+} else if ($Url[0] == "projeto" && isset($Url[1]) && isset($Url[2])) {
+    $pagina = "projeto";
+    $categoria = $Url[1];
+    $parametro = $Url[2];
 } else if ($Url[0] == "servicos" && isset($Url[1])) {
     $pagina = "servico";
     $parametro = $Url[1];

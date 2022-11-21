@@ -9,20 +9,20 @@
                         $vsSqlTextoRodape = "SELECT resumo_texto FROM sobre";
                         $vrsExecutaTextoRodape = mysqli_query($Conexao, $vsSqlTextoRodape) or die("Erro ao efetuar a operação no banco de dados! <br> Arquivo:" . __FILE__ . "<br>Linha:" . __LINE__ . "<br>Erro:" . mysqli_error($Conexao));
                         while ($voResultadoTextoRodape = mysqli_fetch_object($vrsExecutaTextoRodape)) {
-                            ?>
+                        ?>
                             <p><?php echo $voResultadoTextoRodape->resumo_texto ?></p>
-                            <?php
+                        <?php
                         }
                         ?>
                         <ul class="social-link">
-                            <li><a href="<?php echo "https://api.whatsapp.com/send?l=pt_BR&phone=55" . str_replace(array("(", ")", "-", " "), "", $voResultadoConfiguracoes->whatsapp) ?>" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a></li>
+                            <li><a href="<?php echo "https://web.whatsapp.com/send?l=pt_BR&phone=55" . str_replace(array("(", ")", "-", " "), "", $voResultadoConfiguracoes->whatsapp) ?>" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a></li>
                             <?php
                             $vsSqlRedesSociais = "SELECT titulo, link, icone FROM redes_sociais";
                             $vrsExecutaRedesSociais = mysqli_query($Conexao, $vsSqlRedesSociais) or die("Erro ao efetuar a operação no banco de dados! <br> Arquivo:" . __FILE__ . "<br>Linha:" . __LINE__ . "<br>Erro:" . mysqli_error($Conexao));
                             while ($voResultadoRedesSociais = mysqli_fetch_object($vrsExecutaRedesSociais)) {
-                                ?>
+                            ?>
                                 <li><a href="<?php echo $voResultadoRedesSociais->link ?>" title="<?php echo $voResultadoRedesSociais->titulo ?>" target="_blank" rel="noopener"><i class="<?php echo $voResultadoRedesSociais->icone ?>"></i></a></li>
-                                <?php
+                            <?php
                             }
                             ?>
                         </ul>
@@ -48,9 +48,9 @@
                             $vsSqlServicosRodape = "SELECT titulo, url_amigavel FROM servicos WHERE status = 1";
                             $vrsExecutaServicosRodape = mysqli_query($Conexao, $vsSqlServicosRodape) or die("Erro ao efetuar a operação no banco de dados! <br> Arquivo:" . __FILE__ . "<br>Linha:" . __LINE__ . "<br>Erro:" . mysqli_error($Conexao));
                             while ($voResultadoServicosRodape = mysqli_fetch_object($vrsExecutaServicosRodape)) {
-                                ?>
+                            ?>
                                 <li><a href="<?php echo URL . "servicos/" . $voResultadoServicosRodape->url_amigavel ?>"><?php echo $voResultadoServicosRodape->titulo ?></a></li>
-                                <?php
+                            <?php
                             }
                             ?>
                         </ul>
@@ -64,11 +64,14 @@
                             $vsSqlContatosRodape = "SELECT telefone FROM enderecos WHERE id_enderecos = 1";
                             $vrsExecutaContatosRodape = mysqli_query($Conexao, $vsSqlContatosRodape) or die("Erro ao efetuar a operação no banco de dados! <br> Arquivo:" . __FILE__ . "<br>Linha:" . __LINE__ . "<br>Erro:" . mysqli_error($Conexao));
                             while ($voResultadoContatosRodape = mysqli_fetch_object($vrsExecutaContatosRodape)) {
-                                ?>
-                                <li><i class="fab fa-whatsapp"></i> <a title="Whatsapp" target="_blank" rel="noopener" href="<?php echo "https://api.whatsapp.com/send?l=pt_BR&phone=55" . str_replace(array("(", ")", "-", " "), "", $voResultadoConfiguracoes->whatsapp) ?>"><?php echo $voResultadoConfiguracoes->whatsapp ?></a></li>
-                                <li><i class="icofont-headphone-alt"></i> <a title="Telefone" href="<?php echo "tel:55" . str_replace(array("(", ")", "-", " "), "", $voResultadoContatosRodape->telefone) ?>"><?php echo $voResultadoContatosRodape->telefone ?></a></li>
+                            ?>
+                                <li><i class="fab fa-whatsapp"></i> <a title="Whatsapp" target="_blank" rel="noopener" href="<?php echo "https://web.whatsapp.com/send?l=pt_BR&phone=55" . str_replace(array("(", ")", "-", " "), "", $voResultadoConfiguracoes->whatsapp) ?>"><?php echo $voResultadoConfiguracoes->whatsapp ?></a></li>
+                                <?php if ($voResultadoContatosRodape->telefone != null || !empty($voResultadoContatosRodape->telefone)) { ?>
+                                    <li><i class="icofont-headphone-alt"></i> <a title="Telefone" href="<?php echo "tel:55" . str_replace(array("(", ")", "-", " "), "", $voResultadoContatosRodape->telefone) ?>"><?php echo $voResultadoContatosRodape->telefone ?></a></li>
+                                <?php } ?>
+                                <li><i class="icofont-headphone-alt"></i> <a title="Telefone" href="<?php echo "tel:55" . str_replace(array("(", ")", "-", " "), "", $voResultadoConfiguracoes->celular1) ?>"><?php echo $voResultadoConfiguracoes->celular1 ?></a></li>
                                 <li><i class="far fa-envelope"></i> <a title="E-Mail" href="<?php echo "mailto:" . $voResultadoConfiguracoes->email ?>"><?php echo $voResultadoConfiguracoes->email ?></a></li>
-                                <?php
+                            <?php
                             }
                             ?>
                         </ul>
@@ -80,14 +83,14 @@
     <div class="copyright-area">
         <div class="container">
             <div class="row">
-                <div class="col-lg-6 col-md-6">
+                <div class="col-lg-9 col-md-9">
                     <div class="copyright-text">
                         <p><span><?php echo $voResultadoConfiguracoes->nome_empresa ?></span>. Todos direitos reservados.</p>
                     </div>
                 </div>
-                <div class="col-lg-6 col-md-6 logo-wd">
+                <div class="col-lg-3 col-md-3 logo-wd">
                     <a title="Web Dezan - Agência Digital" class="logo-wd-float-right" href="https://webdezan.com.br" target="_blank">
-                        <img src="<?php echo URL . "assets/images/logo-wd.png" ?>" title="Web Dezan - Agência Digital" alt="Web Dezan - Agência Digital">
+                        <img src="<?php echo URL . "assets/images/logo-wd.webp" ?>" title="Web Dezan - Agência Digital" alt="Web Dezan - Agência Digital">
                     </a>
                 </div>
             </div>
